@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":kotlin-coroutines-extension"))
+
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
 }
 
