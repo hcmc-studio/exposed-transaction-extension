@@ -27,7 +27,7 @@ publishing {
 }
 
 dependencies {
-    implementation("com.github.hcmc-studio:kotlin-coroutines-extension:0.0.4-build-01")
+    implementation("com.github.hcmc-studio:kotlin-coroutines-extension:0.0.4-release")
 
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
 }
