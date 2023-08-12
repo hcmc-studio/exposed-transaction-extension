@@ -1,10 +1,15 @@
+val project_version: String by project
+val jdk_version: String by project
+val hcmc_extension_version: String by project
+val exposed_version: String by project
+
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm")
     id("maven-publish")
 }
 
 group = "studio.hcmc"
-version = "0.0.13"
+version = project_version
 
 repositories {
     mavenCentral()
@@ -12,7 +17,7 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(jdk_version.toInt())
 }
 
 publishing {
@@ -20,14 +25,14 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "studio.hcmc"
             artifactId = "exposed-transaction-extension"
-            version = "0.0.13"
+            version = project_version
             from(components["java"])
         }
     }
 }
 
 dependencies {
-    implementation("com.github.hcmc-studio:kotlin-coroutines-extension:0.0.4-release")
+    implementation("com.github.hcmc-studio:kotlin-coroutines-extension:$hcmc_extension_version")
 
-    implementation("org.jetbrains.exposed:exposed-core:0.41.1")
+    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
 }
